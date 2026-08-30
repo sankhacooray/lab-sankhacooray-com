@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>lab — Sankha Cooray · engineering & AI-dev work</title>
+<meta name="description" content="The densest lens — developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.">
+<link rel="canonical" href="https://lab.sankhacooray.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="lab">
+<meta property="og:title" content="lab — Sankha Cooray · engineering & AI-dev work">
+<meta property="og:description" content="The densest lens — developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.">
+<meta property="og:url" content="https://lab.sankhacooray.com/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="lab — Sankha Cooray · engineering & AI-dev work">
+<meta name="twitter:description" content="The densest lens — developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.">
+
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0a0d14">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="lab">
+
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0d14;
+  --surface: #0f1420;
+  --surface2: #141b2b;
+  --border: #1e2a44;
+  --text: #e8edf5;
+  --text-dim: #a6b4cc;
+  --text-muted: #647089;
+  --accent: #6d9bf0;
+  --accent-dim: #4670bd;
+  --accent-soft: #6d9bf014;
+  --accent2: #a582f0;
+  --accent2-dim: #7a5bc0;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --maxw: 1080px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(800px 400px at 18% -10%, #6d9bf012, transparent 60%),
+    radial-gradient(700px 500px at 100% 15%, #a582f00f, transparent 60%);
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+a { color: inherit; text-decoration: none; }
+
+.site-header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: #0a0d14b3; border-bottom: 1px solid var(--border); }
+.site-header .inner { max-width: var(--maxw); margin: 0 auto; padding: 18px 28px; display: flex; align-items: center; gap: 32px; }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-mark { font-family: 'Instrument Serif', serif; font-size: 28px; color: var(--accent); letter-spacing: -0.5px; }
+.brand-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.5px; }
+.nav { margin-left: auto; display: flex; gap: 24px; font-size: 14px; color: var(--text-dim); }
+.nav a:hover { color: var(--text); }
+@media (max-width: 640px) { .nav { display: none; } }
+
+.hero { max-width: var(--maxw); margin: 0 auto; padding: 110px 28px 70px; }
+.hero .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+.hero h1 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(42px, 7vw, 78px); line-height: 1.05; letter-spacing: -1.5px; color: var(--text); margin-bottom: 26px; max-width: 16ch; }
+.hero p { font-size: clamp(17px, 2.2vw, 20px); color: var(--text-dim); max-width: 60ch; }
+
+.section { max-width: var(--maxw); margin: 0 auto; padding: 20px 28px 90px; }
+.section-label { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 22px; display: flex; align-items: center; gap: 12px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: border-color .18s, background .18s; }
+.card:hover { border-color: var(--accent-dim); background: var(--surface2); }
+.card .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.card h3 { font-family: 'Instrument Serif', serif; font-size: 26px; font-weight: 400; color: var(--text); letter-spacing: -0.3px; }
+.card p { font-size: 15px; color: var(--text-dim); }
+.chip { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; padding: 4px 9px; border-radius: 100px; white-space: nowrap; }
+.chip.live { color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-dim); }
+.chip.building { color: var(--text-muted); background: #141b2b; border: 1px solid var(--border); }
+.card .go { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); margin-top: 2px; }
+.card.is-building { opacity: .82; }
+.card.is-building:hover { opacity: 1; }
+
+footer { max-width: var(--maxw); margin: 0 auto; padding: 40px 28px 70px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; }
+footer a { color: var(--text-dim); }
+footer a:hover { color: var(--accent); }
+.footer-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="brand">
+      <span class="brand-mark">lab</span>
+      <span class="brand-tag">sankhacooray.com</span>
+    </div>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="https://sankhacooray.com">Home</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">a research lens on building</div>
+  <h1>Tools I build to think, ship, and automate.</h1>
+  <p>The densest lens — developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.</p>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-label">Selected projects</div>
+  <div class="grid">
+    <div class="card is-building">
+      <div class="top"><h3>skilldex</h3><span class="chip building">in the lab</span></div>
+      <p>A browser for Claude skills — static front over a small /api node backend.</p>
+    </div>
+    <div class="card is-building">
+      <div class="top"><h3>scratch-gpt</h3><span class="chip building">in the lab</span></div>
+      <p>Natural-language to Scratch — an HTML front with an Apps Script bridge.</p>
+    </div>
+    <div class="card is-building">
+      <div class="top"><h3>tab-export</h3><span class="chip building">in the lab</span></div>
+      <p>A Chrome MV3 extension for exporting and organising open tabs.</p>
+    </div>
+    <div class="card is-building">
+      <div class="top"><h3>shopscout</h3><span class="chip building">in the lab</span></div>
+      <p>A shopping copilot — compare, track, and reason about purchases.</p>
+    </div>
+    <div class="card is-building">
+      <div class="top"><h3>concur-copilot</h3><span class="chip building">in the lab</span></div>
+      <p>An MV3 assistant that streamlines expense workflows in Concur.</p>
+    </div>
+    <div class="card is-building">
+      <div class="top"><h3>passkey</h3><span class="chip building">in the lab</span></div>
+      <p>A WebAuthn playground — a client front and a real relying-party server.</p>
+    </div>
+    <div class="card is-building">
+      <div class="top"><h3>ytvault</h3><span class="chip building">in the lab</span></div>
+      <p>A private, personal collection layer over YouTube.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-mono">lab.sankhacooray.com</span>
+  <span>·</span>
+  <span>One of several research lenses by <a href="https://sankhacooray.com">Sankha Cooray</a>.</span>
+</footer>
+
+</body>
+</html>

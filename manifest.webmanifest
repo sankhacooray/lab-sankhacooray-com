@@ -1,0 +1,16 @@
+{
+  "name": "lab — Sankha Cooray",
+  "short_name": "lab",
+  "description": "The densest lens — developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0a0d14",
+  "background_color": "#0a0d14",
+  "lang": "en",
+  "categories": ["developer", "productivity"],
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
