@@ -1,7 +1,7 @@
 {
-  "name": "lab — Sankha Cooray",
+  "name": "lab \u2014 Sankha Cooray",
   "short_name": "lab",
-  "description": "The densest lens — developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.",
+  "description": "The densest lens \u2014 developer tooling, browser extensions, AI-assisted workflows, and small servers that do one thing well. Where an idea becomes something runnable.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,8 +9,27 @@
   "theme_color": "#0a0d14",
   "background_color": "#0a0d14",
   "lang": "en",
-  "categories": ["developer", "productivity"],
+  "categories": [
+    "developer",
+    "productivity"
+  ],
   "icons": [
-    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }
